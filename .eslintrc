@@ -22,14 +22,65 @@
   },
   "plugins": ["react", "@typescript-eslint", "react-hooks", "jsx-a11y", "import"],
   "rules": {
-    "ident": "off",
-    "react/react-in-jsx-scope": "off",
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".tsx"] }],
+    // "indent": ["warn", 2, { "SwitchCase": 1, "offsetTernaryExpressions": true }],
+    "indent": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": ["**/*.stories.tsx"]
+      }
+    ],
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        "components": ["Link"],
+        "specialLink": ["to"],
+        "aspects": ["noHref", "invalidHref", "preferButton"]
+      }
+    ],
+    "jsx-a11y/heading-has-content": ["error", { "components": [""] }],
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }
+    ],
     "no-nested-ternary": "off",
-    "react-hooks/rules-of-hooks": "error",
+    "@typescript-eslint/no-explicit-any": "warn",
+    "no-use-before-define": "off",
+    // "@typescript-eslint/no-use-before-define": ["error"],
+    "react/require-default-props": "off", // Since we do not use prop-types
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "react-hooks/rules-of-hooks": "error", // 檢查 Hook 的規則
+    "react-hooks/exhaustive-deps": "error", // 檢查 effect 的相依性
+    "no-empty-function": "off",
     "@typescript-eslint/no-empty-function": ["warn"],
-    "allowElseIf": false,
-    "no-var": true
+
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-props-no-spreading": [
+      "error",
+      {
+        "html": "enforce",
+        "custom": "enforce",
+        "explicitSpread": "ignore",
+        "exceptions": []
+      }
+    ],
+    "react/prop-types": "off",
+    // note you must disable the base rule as it can report incorrect errors
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["error"],
+    "no-restricted-syntax": "off"
   },
   "settings": {
     "import/resolver": {

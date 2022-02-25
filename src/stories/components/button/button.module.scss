@@ -1,0 +1,47 @@
+.button--root {
+  --background: var(--transparent);
+  --background-hover: var(--transparent);
+  --background-focused: var(--transparent);
+  --background-activated: var(--transparent);
+  --padding-start: 0px;
+  --padding-end: 0px;
+  --box-shadow: none;
+  --color: var(--black-light);
+  --color-activated: var(--black-light);
+  --color-focused: var(--black-light);
+  --color-hover: var(--black-light);
+  @apply m-0 h-full w-full text-xs normal-case;
+
+  &.button--fill {
+    --color: var(--white);
+    @apply bg-black-light;
+  }
+  &.button--outline {
+    @apply border-black-light text-black-light border;
+  }
+  &.button--icon {
+    @apply border-black-light text-black-light border;
+    .buttonIcon {
+      @apply inline-block;
+    }
+  }
+  &.button--icon {
+    @apply border-black-light text-black-light border;
+    .buttonIcon {
+      @apply inline-block;
+    }
+  }
+  &.button--underline {
+    @apply text-black-black h-c-54;
+  }
+
+  &.button--disabled {
+    @apply border-grey-dark border  opacity-100;
+    --color: var(--black);
+    &.button--fill {
+      @apply bg-grey-dark;
+    }
+    &.button--outline {
+    }
+  }
+}
